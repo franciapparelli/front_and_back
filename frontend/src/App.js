@@ -16,13 +16,11 @@ function App() {
         <h1>Frontend and Backend APP</h1>
 
         <CreateUser />
-        
         {
           users.map(user => (
             <UserBox  name={user.name} password={user.password} id={user.id} key={user.id} />
           ))
         }
-      
       </main>
     );
 }

@@ -20,3 +20,6 @@ def create_user(db: Session, user: UserData):
     db.flush(new_user)
     return new_user
 
+def delete_users(db: Session):  
+    return db.delete(User).all()
+

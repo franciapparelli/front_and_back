@@ -1,9 +1,11 @@
+import { Card, Stack } from '@mui/material'
+
 export default function UserBox({ name, password, id }) {
     return (
-        <article>
-            <h3>{name}</h3>
-            <p>{password}</p>
-            <p>{id}</p>
-        </article>
+        <Card variant='outlined'>
+            {name}
+            {password}
+            {id}
+        </Card>
     )
 }
