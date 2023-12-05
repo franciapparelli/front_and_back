@@ -20,6 +20,13 @@ def create_user(db: Session, user: UserData):
     db.flush(new_user)
     return new_user
 
-def delete_users(db: Session):  
-    return db.delete(User).all()
+def delete_user_by_id(db: Session, id: int):
+    user = db.query(User).filter(User.id == id).first()
+    db.delete(user)
+    db.commit()
+    return True
+
+def delete_all_users(db: Session):
+    db.query(User).delete()
+    db.commit()
 

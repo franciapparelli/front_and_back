@@ -12,7 +12,7 @@ Base.metadata.create_all(bind=engine)
 app = FastAPI()
 
 origins = [
-    "*"
+    '*'
 ]
 
 
@@ -56,7 +56,11 @@ def create_user(user: UserData, db: Session = Depends(get_db)):
         raise HTTPException(status_code=400, detail="User already exists.")
     return crud.create_user(db=db,user=user)
 
+@app.delete('/api/users/{id:int}', response_model=UserId)
+def delete_user(id: int, db: Session = Depends(get_db)):
+    return crud.delete_user_by_id(db=db, id=id)
+
 @app.delete('/api/users/', response_model=list[UserId])
 def delete_users(db: Session = Depends(get_db)):
-    return crud.delete_users(db=db)
+    return crud.delete_all_users(db=db)
 
