@@ -1,0 +1,38 @@
+version: '3'
+
+services:
+  frontend:
+    build:
+      context: ./frontend  # Set the build context to the frontend folder
+      dockerfile: Dockerfile.frontend
+    ports:
+      - "3000:3000"
+    networks:
+      - my_network
+
+  backend:
+    build:
+      context: ./backend  # Set the build context to the backend folder
+      dockerfile: Dockerfile.backend
+    ports:
+      - "8000:8000"
+    networks:
+      - my_network
+    depends_on:
+      - db
+
+  db:
+    build:
+      context: ./backend  # Set the build context to the db folder
+      dockerfile: Dockerfile.mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: 12345
+      MYSQL_DATABASE: mydatabase
+    ports:
+      - "3306:3306"
+    networks:
+      - my_network
+
+networks:
+  my_network:
+    driver: bridge

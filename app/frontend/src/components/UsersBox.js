@@ -4,6 +4,7 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import { lightBlue } from '@mui/material/colors';
 
 export default function UserBox({ name, password, id }) {
     
@@ -31,7 +32,7 @@ export default function UserBox({ name, password, id }) {
     
     const card = (
         <React.Fragment>
-          <CardContent>
+          <CardContent style={{marginTop: 15, marginLeft: 5, marginRight: 5, backgroundColor: 'lightblue'}}>
             <div style={{ display: 'flex', alignItems: 'center' }}>
               <Typography sx={{ fontSize: 16, fontWeight: 'bold', color: 'black', marginRight: '8px' }}>
                 Name:

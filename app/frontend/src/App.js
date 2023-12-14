@@ -6,14 +6,14 @@ import CreateUser from './components/CreateUser'
 function App() {
   const [users, setUsers] = useState([])
   useEffect(() => {
-    fetch('http://172.18.0.3:8000/api/users')
+    fetch('http://0.0.0.0:8000/api/users/')
     .then(res => res.json())
     .then(res => setUsers(res))
   }, [])
   return (
       <main>
         
-        <h1>Frontend and Backend APP</h1>
+        <h1 style={{marginLeft: 15}}>Frontend and Backend APP</h1>
 
         <CreateUser />
         

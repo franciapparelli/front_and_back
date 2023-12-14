@@ -29,9 +29,9 @@ export default function CreateUser() {
     }
     return (
         <form>
-            <TextField id="outlined-basic" label="Name:" variant="outlined" onChange={handleTextName} />
-            <TextField id="outlined-basic" label="Password:" variant="outlined" onChange={handleTextPasswor} />
-            <Button variant="contained" onClick={handleClickForm}>Create User</Button>
+            <TextField id="outlined-basic" label="Name:" variant="outlined" onChange={handleTextName} style={{marginLeft: 15}}/>
+            <TextField id="outlined-basic" label="Password:" variant="outlined" onChange={handleTextPasswor} style={{marginLeft: 15, marginRight: 15}}/>
+            <Button variant="contained" onClick={handleClickForm} style={{marginTop: 6}}>Create User</Button>
         </form>
         
     )
