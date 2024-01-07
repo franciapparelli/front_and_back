@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { TextField, Button } from "@mui/material"
 
-export default function CreateUser() {
+function CreateUser() {
     const [textName, setTextName] = useState('')
     const [textPassword, setTextPassword] = useState('')
     function handleTextName(e) {
@@ -36,3 +36,5 @@ export default function CreateUser() {
         
     )
 }
+
+export default CreateUser;

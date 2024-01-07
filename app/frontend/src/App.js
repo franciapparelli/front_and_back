@@ -1,28 +1,18 @@
 import { useEffect, useState } from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
-import UserBox from './components/UsersBox'
-import CreateUser from './components/CreateUser'
+import LogIn from './pages/index.js'
+import Tasks from './pages/taskCreator.js';
 
 function App() {
-  const [users, setUsers] = useState([])
-  useEffect(() => {
-    fetch('http://0.0.0.0:8000/api/users/')
-    .then(res => res.json())
-    .then(res => setUsers(res))
-  }, [])
   return (
-      <main>
-        
-        <h1 style={{marginLeft: 15}}>Frontend and Backend APP</h1>
-
-        <CreateUser />
-        
-        {
-          users.map(user => (
-            <UserBox  name={user.name} password={user.password} id={user.id} key={user.id} />
-          ))
-        }
-      </main>
+      <BrowserRouter>
+      <Routes>
+      <Route path='/' element={<h1>HOLA</h1>}> </Route>
+      <Route path='/login' element={ LogIn() }> </Route>
+      <Route path='/tasks' element={ Tasks() }> </Route>
+      </Routes>
+      </BrowserRouter>
     );
 }
 
